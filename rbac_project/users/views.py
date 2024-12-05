@@ -20,7 +20,7 @@ from rest_framework import viewsets, permissions
 from .throttles import LoginThrottle
 from .serializers import UserSerializer, ProfileSerializer
 from .models import CustomUser, OTP, Profile, Task
-from .utils import send_otp_email
+from .tasks import send_otp_email
 from .mixin import RBACMixin
 from .pagination import StandardResultsSetPagination
 from .permissions import IsTaskOwner
@@ -47,7 +47,7 @@ class LoginSendOTPView(APIView):
         if user:
             # Log successful login attempt
             logger.info(f"Login success for {email} at {now()}")
-            send_otp_email(user)
+            send_otp_email.apply_async(args=[user.id])
             # Log OTP generation
             logger.info(f"OTP sent to {email} at {now()}")
             return Response({'detail': 'OTP sent to your email.'}, status=status.HTTP_200_OK)
