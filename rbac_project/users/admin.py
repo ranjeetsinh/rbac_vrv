@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import OTP, CustomUser
+from .models import OTP, CustomUser, Profile, Task
 # Register your models here.
 
 @admin.register(CustomUser)
@@ -14,3 +14,7 @@ class OTPAdmin(admin.ModelAdmin):
     list_display = ('user', 'code', 'created_at')
     search_fields = ('user__email',)
     list_filter = ('created_at',)
+
+admin.site.register(Profile)
+
+admin.site.register(Task)

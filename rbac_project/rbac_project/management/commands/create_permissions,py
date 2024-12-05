@@ -1,0 +1,9 @@
+from django.core.management.base import BaseCommand
+from add_permissions import create_groups_and_permissions
+
+class Command(BaseCommand):
+    help = 'Create groups and permissions'
+
+    def handle(self, *args, **kwargs):
+        create_groups_and_permissions()
+        self.stdout.write(self.style.SUCCESS('Successfully created groups and permissions'))

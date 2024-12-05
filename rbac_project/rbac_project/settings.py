@@ -39,9 +39,9 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.getenv('DEBUG')
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1']
 
 TIME_ZONE = 'Asia/Kolkata'
 USE_TZ = True
@@ -199,8 +199,8 @@ LOGGING = {
 }
 
 SIMPLE_JWT = {
-    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=15),  # Access token expires in 15 minutes
-    'REFRESH_TOKEN_LIFETIME': timedelta(days=7),     # Refresh token expires in 7 days
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=1200),  # Access token expires in 15 minutes
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=70),     # Refresh token expires in 7 days
     'ROTATE_REFRESH_TOKENS': True,                    # Rotate refresh tokens after each refresh
     'BLACKLIST_AFTER_ROTATION': True,                 # Blacklist the old refresh token
     'AUTH_HEADER_TYPES': ('Bearer',),                 # Define the type of authorization header
