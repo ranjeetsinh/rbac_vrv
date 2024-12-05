@@ -205,3 +205,10 @@ SIMPLE_JWT = {
     'BLACKLIST_AFTER_ROTATION': True,                 # Blacklist the old refresh token
     'AUTH_HEADER_TYPES': ('Bearer',),                 # Define the type of authorization header
 }
+
+PASSWORD_HASHERS = [
+    'django.contrib.auth.hashers.Argon2PasswordHasher',
+    'django.contrib.auth.hashers.BCryptSHA256PasswordHasher',
+    'django.contrib.auth.hashers.PBKDF2PasswordHasher',
+    'django.contrib.auth.hashers.PBKDF2SHA1PasswordHasher',
+]
