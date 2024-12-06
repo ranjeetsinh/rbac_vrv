@@ -38,8 +38,8 @@ Our RBAC system goes beyond traditional Django permissions by:
 
 1. Clone the Repository
 ```bash
-git clone https://github.com/your-username/your-project.git
-cd your-project
+git clone https://github.com/ranjeetsinh/rbac_vrv.git
+cd rbac_project
 ```
 
 2. Create Virtual Environment
